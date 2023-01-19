@@ -43,17 +43,17 @@ const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 ```
 
 
-Here's how we fetch all beanie babie from the beanie_babies table, assuming you've copied the above code correctly:
+Here's how we fetch all *COUNTRIES* from the *COUNTRIES* table, assuming you've copied the above code correctly:
 ```js
 let { data, error } = await client
-    .from('beanie_babies')
+    .from('beanie_babies') //WHAT IS THIS CALLED IN THIS ONE? *NAME OR LOCAL_NAME?*
     .select('*');
 ```
 
-Here's a special this-project-only way of get a list of astrological signs:
+Here's a special this-project-only way of get a list of *CONTINENTS* signs:
 ```js
     let { data, error } = await client
-        .from('beanie_baby_astro_signs')
+        .from('beanie_baby_astro_signs') //WHAT IS THIS CALLED IN THIS ONE? *CONTINENT OR COUNTRY_CONTINENTS*
         .select('*');
 ```
 
