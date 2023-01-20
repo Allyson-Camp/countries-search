@@ -28,8 +28,8 @@ window.addEventListener('load', async () => {
 
 async function findCountries(continent) {
     // Slice A: call the asynchronous fetch function to get the countries
-    const response = await getCountries(continent);
     // Slice C: add continent argument to getCountries function call
+    const response = await getCountries(continent);
     // console log the response object to see all of the nested information returned
     // Slice A: set the countries state to the response.data
     countries = response.data;
@@ -41,6 +41,8 @@ searchForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const formData = new FormData(searchForm);
     // Slice C: Call findCountries with continent from formData
+    const value = formData.get('continent');
+    findCountries(value);
 });
 
 /* Display Functions */
