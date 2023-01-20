@@ -14,7 +14,6 @@ const continentSelect = document.getElementById('continent-select');
 let countries = [];
 let continents = [];
 
-
 /* Events */
 window.addEventListener('load', async () => {
     // call findCountries function with no arguments to fetch all countries (Slice A);
@@ -28,14 +27,12 @@ window.addEventListener('load', async () => {
 });
 
 async function findCountries(continent) {
-    // Slice A: call the asynchronous fetch function to get the countries ((completed after slice C, was a 2 parter))
-    
-    // Slice C: add continent argument to getCountries function call
+    // Slice A: call the asynchronous fetch function to get the countries
     const response = await getCountries(continent);
+    // Slice C: add continent argument to getCountries function call
     // console log the response object to see all of the nested information returned
     // Slice A: set the countries state to the response.data
     countries = response.data;
-    
     // Slice A: call displayCountries function;
     displayCountries();
 }
@@ -44,29 +41,22 @@ searchForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const formData = new FormData(searchForm);
     // Slice C: Call findCountries with continent from formData
-    const value = formData.get('continent');
-    findCountries(value);
 });
 
 /* Display Functions */
 function displayCountries() {
     //Slice A: reset the countries List
     countryList.textContent = '';
-
     for (const country of countries) {
         // Slice A: Call imported render countries function and append to list
-        // countryList.append(renderCountry(country));
-        const countryEl = renderCountry(country);
-        countryList.append(countryEl);
+        countryList.append(renderCountry(country));
     }
 }
 
 function displayContinentOptions() {
     for (const continent of continents) {
         // Slice B: Call continent render function and append to continent selector
-        // continentSelect.append(renderContinentOption(continent));
-        const continentEl = renderContinentOption(continent);
-        continentSelect.append(continentEl);
-
+        continentSelect.append(renderContinentOption(continent));
+        // console.log(renderContinentOption(continent));
     }
 }
